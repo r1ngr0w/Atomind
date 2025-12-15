@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-// --- 2. PAGINA PRINCIPALE (StartView) ---
+
 struct StartView: View {
     var body: some View {
         NavigationStack {
@@ -21,16 +21,14 @@ struct StartView: View {
 
                     Image("logo")
                         .resizable()
-                        // * MODIFICHE QUI PER RIDURRE LA GRANDEZZA *
-                        .aspectRatio(contentMode: .fit) // Mantiene le proporzioni e non taglia
-                        .frame(width: 370) // Imposta una larghezza fissa (diminuisci questo numero se è ancora grande)
-                        .opacity(0.2)      // Opacità al 50%
-                        // *******
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 370)
+                        .opacity(0.2)
                     
                     Spacer()
                 }
-                .ignoresSafeArea() // Importante se usiamo scaledToFill
-                .allowsHitTesting(false) // IMPEDISCE AL LOGO DI BLOCCARE IL CLICK
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
                 
                 // C. LIVELLO CONTENUTO (Titolo e Bottone)
                 VStack(spacing: 0) {
@@ -49,7 +47,8 @@ struct StartView: View {
                     Spacer()
                     
                     // --- BOTTONE (NavigationLink) ---
-                    NavigationLink(destination: NewTaskView()) {
+                    // HERE IS THE CHANGE: We point to AddTaskView()
+                    NavigationLink(destination: AddTaskView()) {
                         HStack(spacing: 12) {
                             Image(systemName: "play.fill")
                                 .font(.system(size: 14))
@@ -61,7 +60,7 @@ struct StartView: View {
                         .padding(.horizontal, 30)
                         .background(Color.blue.opacity(0.1))
                         .cornerRadius(40)
-                        .contentShape(Rectangle()) // Rende il click solido
+                        .contentShape(Rectangle())
                     }
                     
                     Spacer().frame(height: 50)
@@ -79,10 +78,9 @@ struct StartView: View {
     }
 }
 
-// Rinominate anche le Preview per riflettere il cambio nome
+// Preview
 struct StartView_Previews: PreviewProvider {
     static var previews: some View {
         StartView()
     }
 }
-

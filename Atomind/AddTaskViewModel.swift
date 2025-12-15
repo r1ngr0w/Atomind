@@ -30,7 +30,7 @@ class AddTaskViewModel: ObservableObject {
     @Published var showCalendar: Bool = true
     @Published var activeField: DateField = .start
     
-    // --- QUESTA È LA FUNZIONE CHE MANCAVA ---
+    
     func resetState() {
         taskName = ""
         startDate = Date()

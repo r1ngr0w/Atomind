@@ -1,20 +1,8 @@
-//
-//  CustomCalendarView.swift
-//  ATOMIND2
-//
-//  Created by Eman on 12/12/25.
-//
-//----------------------CALENDAR-----------------
-
-//--apple's style calendar --
-
-
-import Foundation
 import SwiftUI
 #if os(iOS)
-import UIKit // Serve per la vibrazione su iPhone
+import UIKit
 #endif
-
+//-------------------------------CALENDARIO(solo mese e giorno)----------------
 struct CustomCalendarView: View {
     // VARIABILI (BINDING)
     @Binding var selectedDate: Date
@@ -29,6 +17,8 @@ struct CustomCalendarView: View {
             
             // --- 1. HEADER (Mese + Frecce) ---
             HStack {
+                // Nota: Se "format" ti dà errore qui, significa che non ce l'hai nell'altro file.
+                // In quel caso dimmelo e ti dico dove mettere l'estensione.
                 Text(currentMonth.format("MMMM yyyy"))
                     .font(.headline)
                     .fontWeight(.bold)
@@ -82,34 +72,26 @@ struct CustomCalendarView: View {
                                 .fill(isSelected ? Color.blue : Color.clear)
                         )
                         .onTapGesture {
-                            // --- CORREZIONE QUI SOTTO ---
-                            // Questo codice viene eseguito SOLO su iOS (iPhone/iPad)
                             #if os(iOS)
                             let impact = UIImpactFeedbackGenerator(style: .light)
                             impact.impactOccurred()
                             #endif
                             
                             withAnimation(.spring()) {
-                                selectedDate = date
+                                // Mantiene l'ora corrente quando cambi giorno
+                                let currentHour = Calendar.current.component(.hour, from: selectedDate)
+                                let currentMinute = Calendar.current.component(.minute, from: selectedDate)
+                                
+                                if let newDate = Calendar.current.date(bySettingHour: currentHour, minute: currentMinute, second: 0, of: date) {
+                                    selectedDate = newDate
+                                } else {
+                                    selectedDate = date
+                                }
                             }
                         }
                 }
             }
-            
-            Divider()
-            
-            // --- 3. TIME PICKER INTEGRATO ---
-            HStack {
-                Text("Time")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
-                Spacer()
-                DatePicker("", selection: $selectedDate, displayedComponents: .hourAndMinute)
-                    .labelsHidden()
-                    .padding(5)
-                    .background(Color.gray.opacity(0.1)) // Sostituito systemGray6 per compatibilità Mac
-                    .cornerRadius(8)
-            }
+            // --- NESSUNA BARRA TIME QUI SOTTO ---
         }
         .padding()
         .background(Color.white)
@@ -117,7 +99,6 @@ struct CustomCalendarView: View {
         .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
     }
     
-    // Funzione interna per scorrere i mesi
     private func changeMonth(_ value: Int) {
         if let newDate = Calendar.current.date(byAdding: .month, value: value, to: currentMonth) {
             currentMonth = newDate

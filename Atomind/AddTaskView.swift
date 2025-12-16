@@ -28,7 +28,7 @@ struct AddTaskView: View {
                                 .padding(12)
                                 .background(Circle().fill(Color.green))
                             
-                            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 4) {
                                 TextField("Task name", text: $viewModel.taskName)
                                     .font(.title3)
                                     .fontWeight(.semibold)
@@ -42,22 +42,9 @@ struct AddTaskView: View {
                         .padding(.top, 20)
                         
                         // --- 2. SEZIONE DATA E ORA ---
-                        VStack(spacing: 0) {
+            VStack(spacing: 0) {
                             
-                            // Time Zone
-                            HStack {
-                                Text("Time Zone")
-                                Spacer()
-                                Text("Cupertino")
-                                    .foregroundStyle(.secondary)
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                                    .foregroundStyle(.tertiary)
-                            }
-                            .padding()
-                            
-                            Divider().padding(.leading)
-                            
+                     
                             // --- RIGA UNICA (START) ---
                             // Contiene: Etichetta, Data (Apre Calendario), Ora (DatePicker nativo)
                             HStack {

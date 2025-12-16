@@ -18,7 +18,6 @@ enum DateField {
     case start
     case end
 }
-
 class AddTaskViewModel: ObservableObject {
     // Dati della schermata
     @Published var taskName: String = ""

@@ -12,8 +12,9 @@ import SwiftData
 struct ATOMMIND2App: App {
     var body: some Scene {
         WindowGroup {
-            // PRIMA c'era ContentView(), ORA rimettiamo la tua vista
-            AddTaskView()
+            // PRIMA C'ERA: AddTaskView()
+            // ORA METTIAMO:
+            ContentView()
         }
         .modelContainer(for: TaskItem.self)
     }

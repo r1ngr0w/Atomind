@@ -46,13 +46,9 @@ struct AddTaskView: View {
                             
                             // Time Zone
                             HStack {
-                                Text("Time Zone")
+                                Text("")
                                 Spacer()
-                                Text("Cupertino")
-                                    .foregroundStyle(.secondary)
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                                    .foregroundStyle(.tertiary)
+                               
                             }
                             .padding()
                             

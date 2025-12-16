@@ -44,17 +44,6 @@ struct AddTaskView: View {
                         // --- 2. SEZIONE DATA E ORA ---
                         VStack(spacing: 0) {
                             
-                            // Time Zone
-                            HStack {
-                                Text("Time Zone")
-                                Spacer()
-                                Text("Cupertino")
-                                    .foregroundStyle(.secondary)
-                                Image(systemName: "chevron.right")
-                                    .font(.caption)
-                                    .foregroundStyle(.tertiary)
-                            }
-                            .padding()
                             
                             Divider().padding(.leading)
                             

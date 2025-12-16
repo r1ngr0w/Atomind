@@ -13,7 +13,7 @@ struct ATOMMIND2App: App {
     var body: some Scene {
         WindowGroup {
             // PRIMA c'era ContentView(), ORA rimettiamo la tua vista
-            AddTaskView()
+            ContentView()
         }
         .modelContainer(for: TaskItem.self)
     }

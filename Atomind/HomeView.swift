@@ -37,10 +37,15 @@ struct HomeView: View {
             }
             .navigationTitle("My Tasks")
             .toolbar {
+                
                 // Button to add MORE tasks from the Home Screen
                 ToolbarItem(placement: .primaryAction) {
                     NavigationLink(destination: AddTaskView()) {
                         Image(systemName: "plus")
+                        
+                        NavigationLink(destination: AddTaskView()){
+                            
+                        }
                     }
                 }
             }

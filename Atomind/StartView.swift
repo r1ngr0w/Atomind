@@ -4,13 +4,13 @@
 //
 //  Created by AFP FED 46 on 15/12/25.
 //
-
+/*
 import SwiftUI
 
 // ==========================================
 // 3. SECONDA SCHERMATA (StartView)
 // ==========================================
-/*
+
 struct StartView: View {
     // Nascondiamo il pulsante "Back" standard per pulizia (opzionale)
     @Environment(\.dismiss) var dismiss

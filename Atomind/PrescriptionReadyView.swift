@@ -47,9 +47,9 @@ struct PrescriptionReadyView: View {
                 }
                 
                 Spacer()
-                
+          
                 // --- Disclaimer ---
-                Text("This is not a medical app")
+                Text("This is not a medical device.")
                     .font(.footnote)
                     .foregroundColor(.atomindGreenText)
                     .opacity(0.8)

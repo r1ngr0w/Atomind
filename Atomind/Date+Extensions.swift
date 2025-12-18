@@ -33,7 +33,7 @@ extension Date {
     func format(_ format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
-        formatter.locale = Locale(identifier: "it_IT") // O "en_US" in base alla lingua app
+        formatter.locale = Locale(identifier: "en_US") // O "en_US" in base alla lingua app
         return formatter.string(from: self)
     }
 }

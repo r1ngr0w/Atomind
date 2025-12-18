@@ -11,10 +11,10 @@ struct CustomCalendarView: View {
     // DEFINIZIONE GRIGLIA
     private let daysOfWeek = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     private let columns = Array(repeating: GridItem(.flexible()), count: 7)
+   
     
     var body: some View {
         VStack(spacing: 20) {
-            
             // --- 1. HEADER (Mese + Frecce) ---
             HStack {
                 // Nota: Se "format" ti dà errore qui, significa che non ce l'hai nell'altro file.

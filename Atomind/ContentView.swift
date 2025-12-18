@@ -1,24 +1,14 @@
-//
-//  ContentView.swift
-//  Atomind
-//
-//  Created by AFP FED 06 on 15/12/25.
-//
-
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        // L'app si avvia sempre dalla schermata di benvenuto
+        PrescriptionReadyView()
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: TaskItem.self, inMemory: true)
 }
